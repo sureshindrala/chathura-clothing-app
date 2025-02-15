@@ -1,0 +1,1 @@
+// create a jenkinsfile with all stages
