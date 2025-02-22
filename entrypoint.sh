@@ -1,5 +1,5 @@
 #!/bin/bash
-ENVIRONMENT="$1:-dev"
+ENVIRONMENT="${1:-dev}"
 
 case "$ENVIRONMENT" in 
     dev)
