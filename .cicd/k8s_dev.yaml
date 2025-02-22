@@ -25,6 +25,7 @@ spec:
         env:
         - name: ENVIRONMENT
           value: "dev"
+---
 # Service for clothing node app
 apiVersion: v1
 kind: Service
