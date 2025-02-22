@@ -1,0 +1,42 @@
+# Deployment for clothing node app
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: i27-clothing-stg
+  labels:
+    app: i27-clothing-stg
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: i27-clothing-stg
+  template:
+    metadata:
+      labels:
+        app: i27-clothing-stg
+    spec:
+      containers:
+      - name: i27-clothing-stg
+        image: DIT # Replace with your docker image name 
+        ports:
+        - containerPort: 3000
+        command: ["/entrypoint.sh"]
+        args: ["stage"]
+        env:
+        - name: ENVIRONMENT
+          value: "stage"
+# Service for clothing node app
+apiVersion: v1
+kind: Service
+metadata:
+  name: i27-clothing-stg
+  labels:
+    app: i27-clothing-stg
+spec:
+  selector:
+    app: i27-clothing-stg
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
