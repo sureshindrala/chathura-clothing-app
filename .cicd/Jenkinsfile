@@ -1,6 +1,7 @@
-// create a jenkinsfile with all stages
+// create a jenkinsfile with all stages//
 // Calling the shared library
 @Library("com.chathura.slb@main") _
 nodePipeline(
     appName: 'clothing'
 )
+// This pipeline 

@@ -37,19 +37,6 @@ CMD ["/entrypoint.sh"]
 
 
 
-# # Install node.js dependencies
-# RUN npm install 
-
-# # Expose the port
-# EXPOSE 3000 
-
-# # Copy entrypoint script
-# COPY entrypoint.sh /entrypoint.sh
-
-# # make the entrypoint as executable
-# RUN chmod +x /entrypoint.sh
-
-# CMD ["/entrypoint.sh"]
 
 # # CMD ["java", "-jar", "/opt/chathura/chathura-users.jar"] java application//
 
