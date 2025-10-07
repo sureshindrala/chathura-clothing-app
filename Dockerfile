@@ -33,14 +33,6 @@ CMD ["/entrypoint.sh"]
 
 
 
-# FROM node:14
-# ARG SRC_DIR=/opt/chathura
-# # Create a directory inside the container
-# RUN mkdir -p $SRC_DIR
-
-# # Set the working directory inside the container 
-# WORKDIR $SRC_DIR
-
 
 # # Copy the current content to /opt/chathura/ 
 # COPY . $SRC_DIR

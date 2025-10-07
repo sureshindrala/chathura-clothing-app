@@ -4,4 +4,4 @@
 nodePipeline(
     appName: 'clothing'
 )
-// This pipeline 
+// This pipeline regaring nodeApp
