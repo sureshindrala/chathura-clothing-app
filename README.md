@@ -21,3 +21,4 @@ If you look into project structure there is a file under src `config.js`. Here i
 - test: "cross-env REACT_APP_ENV=test react-scripts start",
 - stage: "cross-env REACT_APP_ENV=stage react-scripts start",
 - prod: "cross-env REACT_APP_ENV=production react-scripts start"
+## updated dockerfile
