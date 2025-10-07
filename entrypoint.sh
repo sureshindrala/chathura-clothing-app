@@ -23,5 +23,3 @@ case "$ENVIRONMENT" in
         exit 1
         ;;
 esac
-
-#//

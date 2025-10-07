@@ -1,26 +1,36 @@
 FROM node:14
+ARG SRC_DIR=/opt/chathura
+# Create a directory inside the container
+RUN mkdir -p $SRC_DIR
 
-# Set working directory
-WORKDIR /opt/chathura
+# Set the working directory inside the container 
+WORKDIR $SRC_DIR
 
-# Copy only package files first for better layer caching
-COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Copy the current content to /opt/i27/ 
+COPY . $SRC_DIR
 
-# Copy all other source code
-COPY . .
+
+
+# Install node.js dependencies
+RUN npm install 
+
+# Expose the port
+EXPOSE 3000 
 
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
+
+# make the entrypoint as executable
 RUN chmod +x /entrypoint.sh
 
-# Expose the app port
-EXPOSE 3000
-
-# Start the app
 CMD ["/entrypoint.sh"]
+
+# CMD ["java", "-jar", "/opt/i27/i27-users.jar"] java application
+
+
+
+
 
 
 # FROM node:14
