@@ -1,0 +1,43 @@
+# Deployment for clothing node app
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chathura-clothing-dev
+  labels:
+    app: chathura-clothing-dev
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chathura-clothing-dev
+  template:
+    metadata:
+      labels:
+        app: chathura-clothing-dev
+    spec:
+      containers:
+      - name: chathura-clothing-dev
+        image: DIT # Replace with your docker image name 
+        ports:
+        - containerPort: 3000
+        command: ["/entrypoint.sh"]
+        args: ["dev"]
+        env:
+        - name: ENVIRONMENT
+          value: "dev"
+---
+# Service for clothing node app
+apiVersion: v1
+kind: Service
+metadata:
+  name: chathura-clothing-dev
+  labels:
+    app: chathura-clothing-dev
+spec:
+  selector:
+    app: chathura-clothing-dev
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
